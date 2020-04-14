@@ -1,2 +1,2 @@
 # fsharp_common
-fsharp common library
+Fsharp common class library by freebsdk on 2020
