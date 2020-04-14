@@ -6,6 +6,17 @@
 
   <ItemGroup>
     <Compile Include="DateTimeUtil.fs" />
+    <Compile Include="LockGuard.fs" />
+    <Compile Include="MQCPRecords.fs" />
+    <Compile Include="MessageQueueCompletionPort.fs" />
+    <Compile Include="ActiveMQConnectInfo.fs" />
+    <Compile Include="ActiveMQHandle.fs" />
+    <Compile Include="RedisHandle.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Apache.NMS.ActiveMQ" Version="1.7.2" />
+    <PackageReference Include="StackExchange.Redis" Version="2.1.30" />
   </ItemGroup>
 
 </Project>
