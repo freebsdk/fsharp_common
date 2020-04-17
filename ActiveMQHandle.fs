@@ -1,18 +1,7 @@
 namespace fsharp_common
 
 open System
-open System.Collections
 open Apache.NMS
-open Apache.NMS.Util
-
-
-
-
-
-
-
-
-
 
 
 
@@ -32,8 +21,8 @@ type ActiveMQHandle () =
         
     let getDestination (conn_info : ActiveMQConnectInfo) =
         match conn_info.ChannelType with
-        | Queue -> sess_.GetQueue(conn_info.Channel) :> IDestination
-        | Topic -> sess_.GetTopic(conn_info.Channel) :> IDestination
+        | Queue -> conn_info.Channel |> sess_.GetQueue :> IDestination
+        | Topic -> conn_info.Channel |> sess_.GetTopic :> IDestination
 
     
     
@@ -116,5 +105,3 @@ type ActiveMQHandle () =
             message.Text |> Some
         else
             None
-            
-            
