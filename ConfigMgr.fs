@@ -68,23 +68,21 @@ type ConfigMgr() =
     
             
     
-    static member GetStr(key : string) =
+    static member GetStrOrException(key : string) =
         match key |> dic_.TryGetValue with
-        | true, value -> value |> Some
-        | _ -> None
+        | true, value -> value
+        | _ -> ("Does not exist config property > key({0})",key)
+               |> String.Format
+               |> failwith
         
     
         
         
-    static member GetInt32(key : string) =
-        match key |> ConfigMgr.GetStr with
-        | Some value -> value |> int32 |> Some
-        | None -> None
+    static member GetInt32OrException(key : string) =
+        key |> ConfigMgr.GetStrOrException |> int32
 
     
 
     
-    static member GetFloat(key : string) =
-        match key |> ConfigMgr.GetStr with
-        | Some value -> value |> float32 |> Some
-        | None -> None
+    static member GetFloatOrException(key : string) =
+        key |> ConfigMgr.GetStrOrException |> float32

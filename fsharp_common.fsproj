@@ -14,6 +14,8 @@
     <Compile Include="ActiveMQConnectInfo.fs" />
     <Compile Include="ActiveMQHandle.fs" />
     <Compile Include="ActiveMQHandlePool.fs" />
+    <Compile Include="ActiveMQHandlePoolSet.fs" />
+    <Compile Include="ActiveMQInitHelper.fs" />
     <Compile Include="RedisHandle.fs" />
   </ItemGroup>
 

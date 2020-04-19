@@ -26,7 +26,7 @@ type AMQDeliveryMode =
 
 
 
-type ActiveMQConnectInfo (host_adrs : string, port : uint16, channel_type : AMQChannelType, channel : string) =
+type ActiveMQConnectInfo (host_adrs : string, port : int32, channel_type : AMQChannelType, channel : string) =
     let host_adrs_ = host_adrs
     let port_ = port
     let channel_type_ = channel_type
@@ -40,7 +40,18 @@ type ActiveMQConnectInfo (host_adrs : string, port : uint16, channel_type : AMQC
 
     
     
+    
+    
+    static member ToChannelType (channel_type : string) =
+        match channel_type with
+        | "queue" -> Queue
+        | "topic" -> Topic
+        | _ -> ("invalid channel_type > ({0})", channel_type)
+               |> String.Format
+               |> failwith  
 
+    
+    
     member _.HostAdrs = host_adrs_
     member _.Port = port_
     member _.ChannelType = channel_type
