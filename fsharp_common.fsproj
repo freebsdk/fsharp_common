@@ -13,6 +13,7 @@
     <Compile Include="MessageQueueCompletionPort.fs" />
     <Compile Include="ActiveMQConnectInfo.fs" />
     <Compile Include="ActiveMQHandle.fs" />
+    <Compile Include="ActiveMQHandlePool.fs" />
     <Compile Include="RedisHandle.fs" />
   </ItemGroup>
 

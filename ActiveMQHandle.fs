@@ -9,6 +9,7 @@ open Apache.NMS
 
 type ActiveMQHandle () =
     
+    let guid_ = Guid.NewGuid()
     let mutable conn_ : IConnection = null
     let mutable sess_ : ISession = null
     let mutable dest_ : IDestination = null
@@ -105,3 +106,9 @@ type ActiveMQHandle () =
             message.Text |> Some
         else
             None
+
+
+
+    
+    member _.Guid =
+        guid_
